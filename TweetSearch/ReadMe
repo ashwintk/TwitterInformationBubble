@@ -1,0 +1,11 @@
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
+-D mapred.reduce.tasks=1 \
+-file /home/tashwin/PotentialComputation/SearchForATweet.py \
+-file /home/tashwin/PotentialComputation/TweetsLib.py \
+-cmdenv FILTER_WORD=flu \
+-mapper SearchForATweet.py \
+-input /TwitterData/FLUDATA/Flu_One \
+-reducer /bin/cat \
+-output /tashwin/flu_extract
+
+-cmdenv TWEET_TO_FIND='if you drink enough fluids in the morning you will feel happier sharper and more energetic throughout the day' \

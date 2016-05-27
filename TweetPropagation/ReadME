@@ -1,0 +1,17 @@
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
+-D mapred.reduce.tasks=0 \
+-file /home/tashwin/PotentialComputation/PreProcessAndFilterTweetsMapper.py \
+-file /home/tashwin/PotentialComputation/TweetsLib.py \
+-cmdenv FILTER_WORD=flu \
+-mapper PreProcessAndFilterTweetsMapper.py \
+-input /tashwin/TwitterSamp \
+-output /tashwin/TwitterSamp_Extract
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
+-D mapred.reduce.tasks=0 \
+-file /home/tashwin/PotentialComputation/PreProcessAndFilterTweetsMapper.py \
+-file /home/tashwin/PotentialComputation/TweetsLib.py \
+-cmdenv FILTER_WORD=flu \
+-mapper PreProcessAndFilterTweetsMapper.py \
+-input /TwitterData/FLUDATA/Flu_One \
+-output /tashwin/flu_extract
