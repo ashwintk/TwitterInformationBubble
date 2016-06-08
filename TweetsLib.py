@@ -27,11 +27,14 @@ def replaceHashTagsWithWords (tweetText):
     return re.sub(r'#([^\s]+)', r'\1', tweetText)
 
 # This function is used to chack if a word occurs in a tweet
-def isWordInTweet(tweetText,FilterWord):
-    if FilterWord.lower() in tweetText.lower():
-        return True
-    else:
-        return False
+def isWordInTweet(tweetText,FilterWord, splitBy):
+    flag=False
+    strArray = tweetText.lower().split(splitBy)
+    for word in strArray:
+        if FilterWord.lower() == word.lower():
+            flag=True
+            break
+    return flag
 
 # Extract date from timestamp
 def extractDateFromTimestamp(timestamp):
@@ -44,6 +47,11 @@ def extractTimeFromTimestamp(timestamp):
     from dateutil import parser
     d = parser.parse(timestamp.strip().lstrip())
     return str(d.time())
+
+# Convert String to timestamp
+def convertStringToTimestamp(timestamp):
+    from dateutil import parser
+    return parser.parse(timestamp.strip().lstrip())
 
 # This function is used to split a string and return an array based on a passed delimiter
 def splitStringAndReturnArray(text, delimiter):

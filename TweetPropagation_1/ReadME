@@ -1,0 +1,65 @@
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
+-D mapred.reduce.tasks=27 \
+-D stream.num.map.output.key.fields=1 \
+-libjars /home/tashwin/PotentialComputation/TweetsClassifier.jar \
+-file /home/tashwin/PotentialComputation/TweetsPropagationMapper.py \
+-file /home/tashwin/PotentialComputation/TweetsLib.py \
+-cmdenv FILTER_WORD=flu \
+-mapper TweetsPropagationMapper.py \
+-partitioner TextPartitioner \
+-reducer /bin/cat \
+-input /TwitterData/FLUDATA/Flu_One \
+-output /TwitterData/flu_prop_1
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
+-D mapred.reduce.tasks=27 \
+-D stream.num.map.output.key.fields=1 \
+-libjars /home/tashwin/PotentialComputation/TweetsClassifier.jar \
+-file /home/tashwin/PotentialComputation/TweetsPropagationMapper.py \
+-file /home/tashwin/PotentialComputation/TweetsLib.py \
+-cmdenv FILTER_WORD=flu \
+-mapper TweetsPropagationMapper.py \
+-partitioner TextPartitioner \
+-reducer /bin/cat \
+-input /TwitterData/FLUDATA/Flu_Two \
+-output /TwitterData/flu_prop_2
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
+-D mapred.reduce.tasks=27 \
+-D stream.num.map.output.key.fields=1 \
+-libjars /home/tashwin/PotentialComputation/TweetsClassifier.jar \
+-file /home/tashwin/PotentialComputation/TweetsPropagationMapper.py \
+-file /home/tashwin/PotentialComputation/TweetsLib.py \
+-cmdenv FILTER_WORD=flu \
+-mapper TweetsPropagationMapper.py \
+-partitioner TextPartitioner \
+-reducer /bin/cat \
+-input /TwitterData/FLUDATA/Flu_Three \
+-output /TwitterData/flu_prop_3
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
+-D mapred.reduce.tasks=27 \
+-D stream.num.map.output.key.fields=1 \
+-libjars /home/tashwin/PotentialComputation/TweetsClassifier.jar \
+-file /home/tashwin/PotentialComputation/TweetsPropagationMapper.py \
+-file /home/tashwin/PotentialComputation/TweetsLib.py \
+-cmdenv FILTER_WORD=flu \
+-mapper TweetsPropagationMapper.py \
+-partitioner TextPartitioner \
+-reducer /bin/cat \
+-input /TwitterData/FLUDATA/Flu_Four \
+-output /TwitterData/flu_prop_4
+
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
+-D mapred.reduce.tasks=27 \
+-D stream.num.map.output.key.fields=1 \
+-libjars /home/tashwin/PotentialComputation/TweetsClassifier.jar \
+-file /home/tashwin/PotentialComputation/TweetsPropagationMapper.py \
+-file /home/tashwin/PotentialComputation/TweetsLib.py \
+-cmdenv FILTER_WORD=flu \
+-mapper TweetsPropagationMapper.py \
+-partitioner TextPartitioner \
+-reducer /bin/cat \
+-input /tashwin/TwitterSamp \
+-output /tashwin/flu_extract_1

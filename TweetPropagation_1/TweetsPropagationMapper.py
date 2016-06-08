@@ -20,7 +20,6 @@ for line in sys.stdin:
             # Remove new line and carriage return
             tweet_text = tlib.stripNewLineAndReturnCarriage(tweet_text)
             # Remove URL's & User Mentions
-            tweet_text = tlib.removeURL(tweet_text)
             tweet_text = tlib.removeUserMentions(tweet_text)
             # Replace sequence of repeated characters by three characters
             tweet_text = tlib.replaceRepeatedCharacters(tweet_text)
@@ -29,13 +28,13 @@ for line in sys.stdin:
             # Replace hashtags with words
             tweet_text = tlib.replaceHashTagsWithWords(tweet_text)
             # Remove double quotes
-            tweet_text = re.sub(r'([^\s\w]|_)', '', tweet_text)
+            tweet_text = re.sub(r'([^\s\w:./]|_)', '', tweet_text)
             # Trim the tweet text
             tweet_text = tweet_text.strip().lstrip().lower()
             # Get word to filter
             wordToFilter = os.environ["FILTER_WORD"]
             # If the word is in tweet
-            if tlib.isWordInTweet(tweet_text, wordToFilter):
+            if tlib.isWordInTweet(tweet_text, wordToFilter, ' '):
                 ownerName = "N/A"
                 ownerTimeStamp = "N/A"
                 if 'retweeted_status' in parsed_json_tweets:
