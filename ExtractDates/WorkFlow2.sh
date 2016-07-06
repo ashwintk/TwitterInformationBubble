@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
 -D mapred.reduce.tasks=1 \
 -file /home/tashwin/PotentialComputation/DateExtractor/DateExtractorStageTwoReducer.py \
