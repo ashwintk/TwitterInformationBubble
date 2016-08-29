@@ -63,3 +63,14 @@ hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
 -reducer /bin/cat \
 -input /tashwin/TwitterSamp \
 -output /tashwin/flu_extract_1
+
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
+-D mapred.reduce.tasks=0 \
+-D stream.num.map.output.key.fields=1 \
+-file /home/tashwin/PotentialComputation/TweetsPropagationMapper.py \
+-file /home/tashwin/PotentialComputation/TweetsLib.py \
+-cmdenv FILTER_WORD=flu \
+-mapper TweetsPropagationMapper.py \
+-input /TwitterData/FLUDATA/Flu_One \
+-output /TwitterData/mysample
