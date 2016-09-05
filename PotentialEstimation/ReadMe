@@ -1,0 +1,41 @@
+#!/bin/bash
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.6.0.jar \
+-D mapred.reduce.tasks=1 \
+-file /home/tashwin/PotentialComputation/PotentialComputationMapper.py \
+-file /home/tashwin/PotentialComputation/topicsArray \
+-file /home/tashwin/PotentialComputation/TweetsLib.py \
+-file /home/tashwin/PotentialComputation/PotentialComputationReducer.py \
+-cmdenv START_DATE="05/01/2015" \
+-cmdenv END_DATE="12/01/2015" \
+-cmdenv RHO=0.5 \
+-mapper PotentialComputationMapper.py \
+-combiner PotentialComputationReducer.py \
+-reducer PotentialComputationReducer.py \
+-input /SharedResults/FLU_TWEET_LEVEL/A/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/B/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/C/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/D/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/E/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/F/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/G/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/H/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/I/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/J/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/K/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/L/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/M/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/N/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/O/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/P/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/Q/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/R/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/S/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/T/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/U/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/V/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/W/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/X/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/Y/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/Z/part-00000 \
+-input /SharedResults/FLU_TWEET_LEVEL/OTHERS/part-00000 \
+-output /SharedResults/FLU_POTENTIAL_0_5

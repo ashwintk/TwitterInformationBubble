@@ -8,8 +8,8 @@ lastDateCombo = None
 lastPotential = 0
 
 for line in sys.stdin:
-    (dateCombo, potential) = line.strip().lstrip().split(",")
-    potential = int(potential)
+    (dateCombo, potential) = line.strip().lstrip().split("\t")
+    potential = float(potential)
     if lastDateCombo == dateCombo:
         lastPotential += potential
     else:

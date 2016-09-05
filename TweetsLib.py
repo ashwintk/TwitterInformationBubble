@@ -66,3 +66,15 @@ def removeItemsInTweetContainedInAList(tweet_text,stop_words,splitBy):
         if word not in StopWords:
             return_str += word + splitBy
     return return_str.strip().lstrip()
+
+# This function reads a file and returns its contents as an array
+def readFileandReturnAnArray(fileName, readMode, isLower):
+    myArray=[]
+    with open(fileName, readMode) as readHandle:
+        for line in readHandle.readlines():
+            lineRead = line
+            if isLower:
+                lineRead = lineRead.lower()
+            myArray.append(lineRead.strip().lstrip())
+    readHandle.close()
+    return myArray
