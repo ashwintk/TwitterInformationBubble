@@ -6,6 +6,10 @@ sys.path.append('./')
 
 import TweetsLib as tlib
 
+# Read the distributed cache file and store them as an array
+topicsArray = tlib.readFileandReturnAnArray("politicsTopics", "r", True)
+currentTopics = ",".join(topicsArray).strip().lstrip()
+
 for line in sys.stdin:
     try:
         # Load Tweets
@@ -31,10 +35,8 @@ for line in sys.stdin:
             tweet_text = re.sub(r'([^\s\w:./]|_)', '', tweet_text)
             # Trim the tweet text
             tweet_text = tweet_text.strip().lstrip().lower()
-            # Get word to filter
-            wordToFilter = os.environ["FILTER_WORD"]
             # If the word is in tweet
-            if tlib.isWordInTweet(tweet_text, wordToFilter, ' '):
+            if tlib.isArrayOfFilterWordsInTweet(tweet_text, currentTopics, ' ', ','):
                 ownerName = "N/A"
                 ownerTimeStamp = "N/A"
                 if 'retweeted_status' in parsed_json_tweets:

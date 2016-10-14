@@ -27,13 +27,26 @@ def replaceHashTagsWithWords (tweetText):
     return re.sub(r'#([^\s]+)', r'\1', tweetText)
 
 # This function is used to chack if a word occurs in a tweet
-def isWordInTweet(tweetText,FilterWord, splitBy):
-    flag=False
+def isWordInTweet(tweetText, FilterWord, splitBy):
+    flag = False
     strArray = tweetText.lower().split(splitBy)
+    print strArray
     for word in strArray:
         if FilterWord.lower() == word.lower():
-            flag=True
+            flag = True
             break
+    return flag
+
+# This function is used to chack if a word occurs in a tweet
+def isArrayOfFilterWordsInTweet(tweetText, filterWords, tweetSplitBy, filterWordSplitBy):
+    flag = False
+    wordsArray = tweetText.lower().split(tweetSplitBy)
+    filterWordsArray = filterWords.lower().split(filterWordSplitBy)
+    for word in wordsArray:
+        for filterWord in filterWordsArray:
+            if filterWord.lower() == word.lower():
+                flag = True
+                break
     return flag
 
 # Extract date from timestamp
